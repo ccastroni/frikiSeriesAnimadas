@@ -1,0 +1,7 @@
+{
+  "name": "friki Series",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

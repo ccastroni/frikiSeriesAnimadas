@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Comenzar!!</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+
+  <ion-grid class="detalleTiempo">
+    <ion-row>
+      <ion-col size="6">
+       Round: {{contarRouds}} /{{rounds}}
+      </ion-col>
+      <ion-col size="6">
+        Preparacion: {{timePre}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        Descanso: {{timeRest}}
+      </ion-col>
+      <ion-col size="6">
+        Entrenamiento:   {{segundosDefinidos}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-fab vertical="top" horizontal="start" class="fabPause">
+    <ion-fab-button (click)='pausarEntrenamiento()' color="warning">
+      <ion-icon *ngIf="pause" name="pause"></ion-icon>
+      <ion-icon *ngIf="!pause" name="play"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <div class="mensaje" [hidden]="ocultarMensaje">
+    <div class="glitch" data-text="Preparate!!">{{mensajeAlerta}}</div>
+    <div class="glow">{{mensajeAlerta}}</div>
+  </div>
+  <ion-grid (click)="contadorFlexiones()" class="gridReto" center>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="12" class="totalFlexiones ion-text-center">
+        {{segundosDefinidos}}
+      </ion-col>
+    </ion-row>   
+    <ion-row class="ion-align-items-center">
+      <ion-col size="12" class="ion-text-center">
+        {{tiempototal}} - {{totalFlexiones}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>

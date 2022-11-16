@@ -1,0 +1,67 @@
+ion-content {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+.list {
+  ion-card-content {
+
+    padding: 0px;
+  }
+
+  ion-thumbnail {
+    --size: 140px;
+    --border-radius: 14px;
+    width: 130px;
+    height: 130px;
+    object-fit: contain !important;
+
+    ion-img {
+      //width: 150px;
+
+      object-fit: initial;
+      margin: 0 auto;
+
+      //  background-color: #222428;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: initial;
+      }
+    }
+    
+  }
+
+  .descripcion{
+    height: 100px;
+  }
+
+  ion-item::part(native) {
+    //WRITE ALL YOUR CSS RULES HERE
+    padding: 0px;
+    /** and lots more **/
+  }
+
+  .item-inner {
+    //WRITE ALL YOUR CSS RULES HERE
+    padding: 0px;
+    /** and lots more **/
+  }
+
+  ion-checkbox {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 4px;
+  }
+
+  .separador {
+    border-left: 2px solid #d7d8da;
+    padding-left: 10px;
+  }
+
+
+  ion-icon {
+    width: 30px;
+    height: 30px;
+  }
+}

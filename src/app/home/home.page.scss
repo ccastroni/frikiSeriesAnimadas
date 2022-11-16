@@ -1,0 +1,134 @@
+.ion-content-test {
+
+  //--background: linear-gradient(#8A2BE2, 45%, #f4f5f8, 50%);
+
+}
+
+
+ion-grid {
+  padding: 0px;
+
+}
+
+
+ion-col {
+  padding: 0px;
+}
+
+ion-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.swiper-container {
+  width: 100%;
+
+}
+
+.swiper-slide {
+  margin-right: -8px !important;
+  text-align: center;
+  font-size: 18px;
+  width: 150px !important;
+  height: 180px !important;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+
+}
+
+ion-card {
+  height: 170px;
+  background: #f4f5f8;
+  min-width: 130px;
+
+
+  -webkit-box-shadow: -2px -2px -2px 0px rgba(0, 0, 0, 0.31);
+  -moz-box-shadow: -2px -2px -2px 0px rgba(0, 0, 0, 0.31);
+  box-shadow: -2px -2px -2px 0px rgba(0, 0, 0, 0.31);
+
+}
+
+.swiper-container>.swiper-pagination {
+
+  bottom: 0px !important;
+}
+
+
+.swiper-container>.swiper-pagination-bullets {
+  bottom: 0px !important;
+}
+
+ion-slide {
+  margin-right: 0px !important;
+}
+
+.categoria {
+  font-size: larger;
+  height: 34px;
+  font-weight: bold;
+  color: #d7d8da;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+ion-img {
+  height: 145px !important;
+  object-fit: fill;
+}
+
+.swiper-misfavoritos{
+  ion-img {
+    height: 170px !important;
+    object-fit: fill;
+  }
+}
+ion-card-content {
+  padding: 0px;
+  font-weight: bold;
+}
+
+.totalCollectionss {
+  display: table;
+  vertical-align: middle;
+  margin: 0 auto;
+  padding-bottom: 2px;
+  color: black;
+  font-weight: bold;
+}
+
+
+.sombra {
+  -webkit-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.31);
+  -moz-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.31);
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.31);
+}
+
+ion-segment {
+  --background: var(--ion-color-dark);
+}
+
+ion-segment-button {
+
+  --color-checked: var(--ion-color-warning);
+  --color: var(--ion-color-light);
+}
+
+.img-check-price {
+
+  width: 350px !important;
+  height: 550px !important;
+  margin: 0 auto;
+}
