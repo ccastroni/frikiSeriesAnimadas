@@ -8,6 +8,7 @@ import { map } from 'rxjs/operators';
 import { getDatabase, ref, onValue } from "firebase/database";
 import { CommunicadoPage } from '../pages/communicado/communicado.page';
 import { LocalStorageService } from '../services/local-storage.service';
+import { StatusBar, Style } from '@capacitor/status-bar';
 
 @Component({
   selector: 'app-home',
@@ -27,6 +28,12 @@ export class HomePage {
   private mensajeModal: any;
 
   constructor(public navCtrl: NavController, private db: AngularFireDatabase, private modalCtrl: ModalController, private storage: LocalStorageService) {
+
+    StatusBar.setOverlaysWebView({ overlay: true });
+
+    const setStatusBarStyleDark = async () => {
+      await StatusBar.setStyle({ style: Style.Dark });
+    };
     /*this.series = [{
       "categoria": "Festival de los Robots y otros",
       "tipo": "serie",
@@ -141,8 +148,8 @@ export class HomePage {
 
   private async buscarFavoritos() {
     let getStorage = await this.storage.getObject('misFavoritos', true);
-    if (getStorage && getStorage.length > 0)
-      this.misFavoritos = getStorage;
+    //if (getStorage && getStorage.length > 0)
+    this.misFavoritos = getStorage;
   }
 
   public async share() {

@@ -90,8 +90,30 @@ ion-img {
 }
 
 .swiper-misfavoritos{
+
+  .swiper-slide {
+    margin-right: -8px !important;
+    text-align: center;
+    font-size: 18px;
+    width: 170px !important;
+    height: 210px !important;
+    /* Center slide text vertically */
+  }
+
+  ion-card {
+    height: 200px;
+    background: #f4f5f8;
+    min-width: 150px;
+  
+  
+    -webkit-box-shadow: -2px -2px -2px 0px rgba(0, 0, 0, 0.31);
+    -moz-box-shadow: -2px -2px -2px 0px rgba(0, 0, 0, 0.31);
+    box-shadow: -2px -2px -2px 0px rgba(0, 0, 0, 0.31);
+  
+  }
+
   ion-img {
-    height: 170px !important;
+    height: 200px !important;
     object-fit: fill;
   }
 }
