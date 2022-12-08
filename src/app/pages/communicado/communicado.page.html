@@ -1,82 +1,80 @@
 <ion-header>
-  <ion-toolbar color="light">
-    <ion-title>
-      <h3 class="ion-text-center">{{data.titulo}}</h3>
-    </ion-title>
-  </ion-toolbar>
+ 
 </ion-header>
 
 <ion-content>
 
-  <ion-row>
-    <ion-col class="list" size-xs="12" size-sm="12" size-md="8" size-lg="6" size-xl="6">
 
-      <ion-card>
-        <ion-card-content class="animate__animated animate__slideInRight animate__fast">
-          <ion-item lines="none">
-            <ion-thumbnail slot="start" class="content-imagen">
-              <ion-img [src]="data.imagen"></ion-img>
-            </ion-thumbnail>
-            <ion-label>
-              <ion-grid>
-                <ion-row>
-                  <ion-col size="12" class="logo">
-                    <ion-item lines="none" color="none">
-                      <ion-label>
-                        <h2>{{data.titulo}}</h2>
-                        <ion-label class="descripcion ion-text-wrap">
-                          Multi-line text that should wrap when it is too long
-                          to fit on one line. Lorem ipsum dolor sit amet,
-                          consectetur adipiscing elit.Multi-line text that should wrap when it is too long
-                          to fit on one line. Lorem ipsum dolor sit amet,
-                          consectetur adipiscing elit.
-                        </ion-label>
-                      </ion-label>
+  <ion-card class="list">
+    <ion-item lines="none" class="">
+      <h3 class="ion-padding-horizontal ion-no-margin">{{data.titulo}}</h3>
+    </ion-item>
+   
+    <ion-card-content class="">
+      <ion-item lines="none">
+        <ion-thumbnail slot="start" class="content-imagen">
+          <ion-img [src]="data.imagen"></ion-img>
+        </ion-thumbnail>
+
+        <ion-card class="card-descricion">
+          <ion-card-header>
+            <ion-card-subtitle>{{data.fecha}} - {{data.totalCapitulos}} capitulos</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content class="ion-text-wrap">
+            {{data.descripcion}}
+          </ion-card-content>
+        </ion-card>
+        <!--
+                <ion-col size="12" class="logo">
+                  <ion-item class="item-descripcion" lines="none" color="none">
+                    
                       
-                    </ion-item>
-                  </ion-col>
-                </ion-row>
-              </ion-grid>
-            </ion-label>
-          </ion-item>
+                      <ion-textarea cols="12"  rows="6" [disabled]="true" placeholder="El profesor Shiba, un talentoso científico y arqueólogo, descubre en sus investigaciones una campana de bronce cuyas inscripciones narran la historia de la reina Himika, gobernante de Jamatai cuyo reinado del mal terminó quedando ella dormida por mil años. A partir de este momento, el profesor dedica su vida a preparar al mundo para su regreso."></ion-textarea>
 
-          <ion-row size="12">
-            <ion-col size="4" (click)="data.irAListaVideo ? irAListaVideo(data.titulo) : verSerie(data.titulo,data.video)">
-              <ion-row class="ion-justify-content-center">
-                <ion-icon name="play-circle-outline"></ion-icon>
-              </ion-row>
-              <ion-row class="ion-justify-content-center">
-                <ion-label [class]="data.titulo ? 'label-destacar' : ''">
-                  <p>Ver</p>
-                </ion-label>
-              </ion-row>
-            </ion-col>
-            <ion-col size="4">
-              <ion-row class="ion-justify-content-center">
-                <ion-icon [name]="lista ? 'checkmark-circle-outline' :'add-circle-outline'" color="danger"
-                  class="icon-wishList" (click)="agregarLista()">
-                </ion-icon>
-              </ion-row>
-              <ion-row class="ion-justify-content-center">
-                <ion-label>
-                  <p>Mi Lista</p>
-                </ion-label>
-              </ion-row>
-            </ion-col>
-            <ion-col size="4"(click)="share()">
-              <ion-row class="ion-justify-content-center">
-                <ion-icon color="primary" name="share-social-outline" ></ion-icon>
-              </ion-row>
-              <ion-row class="ion-justify-content-center">
-                <ion-label>
-                  <p>Compartir</p>
-                </ion-label>
-              </ion-row>
-            </ion-col>
+
+                  </ion-item>
+                </ion-col>
+                -->
+
+      </ion-item>
+
+      <ion-row size="12">
+        <ion-col size="4" (click)="data.irAListaVideo ? irAListaVideo(data.titulo) : verSerie(data.titulo,data.video)">
+          <ion-row class="ion-justify-content-center">
+            <ion-icon name="play-circle-outline"></ion-icon>
           </ion-row>
+          <ion-row class="ion-justify-content-center">
+            <ion-label [class]="data.titulo ? 'label-destacar' : ''">
+              <p>Ver</p>
+            </ion-label>
+          </ion-row>
+        </ion-col>
+        <ion-col size="4">
+          <ion-row class="ion-justify-content-center">
+            <ion-icon [name]="lista ? 'checkmark-circle-outline' :'add-circle-outline'" 
+              class="icon-wishList" (click)="agregarLista()">
+            </ion-icon>
+          </ion-row>
+          <ion-row class="ion-justify-content-center">
+            <ion-label>
+              <p>Mi Lista</p>
+            </ion-label>
+          </ion-row>
+        </ion-col>
+        <ion-col size="4" (click)="share()">
+          <ion-row class="ion-justify-content-center">
+            <ion-icon color="primary" name="share-social-outline"></ion-icon>
+          </ion-row>
+          <ion-row class="ion-justify-content-center">
+            <ion-label>
+              <p>Compartir</p>
+            </ion-label>
+          </ion-row>
+        </ion-col>
+      </ion-row>
 
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-  </ion-row>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

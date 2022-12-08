@@ -29,10 +29,10 @@ ion-content {
         object-fit: initial;
       }
     }
-    
+
   }
 
-  .descripcion{
+  .descripcion {
     height: 100px;
   }
 
@@ -63,5 +63,32 @@ ion-content {
   ion-icon {
     width: 30px;
     height: 30px;
+  }
+
+  ion-grid {
+    margin: 0px;
+    height: 100%;
+    padding: 0px;
+
+    ion-col {
+      padding: 0px;
+    }
+
+    ion-label {
+      margin: 0px;
+    }
+  }
+
+  .item-descripcion {
+    padding-right: 0px;
+  }
+
+  .card-descricion{
+    margin: 0px;
+    max-height: 190px;
+
+    ion-card-header{
+      padding: 0px;
+    }
   }
 }

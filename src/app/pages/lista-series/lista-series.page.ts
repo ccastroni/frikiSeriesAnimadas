@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { getDatabase, ref, onValue, query, orderByChild, equalTo, get } from "firebase/database";
 
 @Component({
   selector: 'app-lista-series',
@@ -217,9 +218,23 @@ export class ListaSeriesPage implements OnInit {
   }
 
   ngOnInit() {
-    this.capitulos = this.capitulos.filter(x => x.serie == this.serie);
+    //this.capitulos = this.capitulos.filter(x => x.serie == this.serie);
+    this.cargarSerieFirebase()
     console.log(this.capitulos)
 
+  }
+
+  private async cargarSerieFirebase() {
+
+    const db = getDatabase();
+    const dbRef = ref(db, "listaCapitulos")
+
+    const queryConstraints = [orderByChild("serie"), equalTo(this.serie)]
+
+    const dataSnapshot = await get(query(dbRef, ...queryConstraints))
+    
+    //this.infos = [];
+    this.capitulos = snapshotToArray(dataSnapshot)
   }
 
   public verSerie(video) {
@@ -227,3 +242,16 @@ export class ListaSeriesPage implements OnInit {
   }
 
 }
+
+export const snapshotToArray = snapshot => {
+  let returnArr = [];
+
+  snapshot.forEach(childSnapshot => {
+    let item = childSnapshot.val();
+    item.key = childSnapshot.key;
+    returnArr.push(item);
+  });
+
+  return returnArr;
+};
+

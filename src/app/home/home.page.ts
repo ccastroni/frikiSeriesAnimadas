@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Share } from '@capacitor/share';
-import { ModalController, NavController } from '@ionic/angular';
+import { isPlatform, ModalController, NavController } from '@ionic/angular';
 import { DataService, Message } from '../services/data.service';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
 import { Observable } from 'rxjs/internal/Observable';
@@ -17,7 +17,9 @@ import { StatusBar, Style } from '@capacitor/status-bar';
 })
 export class HomePage {
 
-  public series = []
+  public listHome = []
+  private series = []
+  private peliculas = []
   public misFavoritos = []
   public segmentModel = "series";
   slideOpts = {
@@ -29,13 +31,33 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, private db: AngularFireDatabase, private modalCtrl: ModalController, private storage: LocalStorageService) {
 
-    StatusBar.setOverlaysWebView({ overlay: true });
 
-    const setStatusBarStyleDark = async () => {
-      await StatusBar.setStyle({ style: Style.Dark });
-    };
+    //StatusBar.setOverlaysWebView({ overlay: false });
+    if (isPlatform('mobile')) {
+      
+      let my_color_variable: string = '#222428'
+
+      const setStatusBarStyleDark = async () => {
+        await StatusBar.setBackgroundColor({ color: my_color_variable.toString() })
+      };
+      //const color = BackgroundColorOptions()
+      //await StatusBar.setBackgroundColor({color:'#222428'})
+
+       // in my project config service
+
+      StatusBar.setBackgroundColor({
+        color: my_color_variable.toString()
+        ,
+      });
+
+      const hideStatusBar = async () => {
+        await StatusBar.show();
+      };
+
+    }
+
   }
-  
+
   async ngOnInit() {
 
     await this.buscarFavoritos();
@@ -45,10 +67,16 @@ export class HomePage {
     onValue(starCountRef, (snapshot) => {
       const data = snapshot.val();
       //updateStarCount(postElement, data);
+      this.filtrarCategoriaHome(data)
       console.log(data)
-      this.series = data;
+      this.listHome = this.series;
     });
 
+  }
+
+  private filtrarCategoriaHome(data: any) {
+    this.series = data.filter(x => x.tipo == 'serie')
+    this.peliculas = data.filter(x => x.tipo == 'pelicula')
   }
 
   private async buscarFavoritos() {
@@ -62,17 +90,17 @@ export class HomePage {
     await Share.share({
       title: 'Friki Series Animadas',
       text: 'Aplicación de tus series animadas de la infancia de acero xD.',
-      url: 'http://ionicframework.com/',
+      url: 'https://play.google.com/store/apps/details?id=io.frikiSeries',
       dialogTitle: 'App Friki series',
     });
   }
 
   async abrirModal(info) {
-        
+
     this.mensajeModal = await this.modalCtrl.create({
       component: CommunicadoPage,
       breakpoints: [0, 0.5, 1],
-      initialBreakpoint: 0.5,
+      initialBreakpoint: 0.4,
       cssClass: 'custom-modal',
       componentProps: {
         dataOrigen: {
@@ -89,6 +117,14 @@ export class HomePage {
 
   async closeModal() {
     await this.mensajeModal.dismiss();
+  }
+
+  segmentChange(opcion) {
+    const segmentSelect = opcion.detail.value
+    if (segmentSelect === 'series')
+      this.listHome = this.series
+    else
+      this.listHome = this.peliculas
   }
 
 }

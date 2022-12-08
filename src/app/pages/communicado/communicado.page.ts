@@ -88,7 +88,7 @@ export class CommunicadoPage implements OnInit {
     await Share.share({
       title: 'Friki Series Animadas',
       text: 'Descarga la app Friki series animadas',
-      url: this.data.imagen,
+      url: 'https://play.google.com/store/apps/details?id=io.frikiSeries',
       dialogTitle: 'App Friki series',
     });
   }

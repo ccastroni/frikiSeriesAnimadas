@@ -10,7 +10,7 @@
 
 <ion-content class="ion-content-test" color="dark">
 
-  <ion-segment value="series" [(ngModel)]="segmentModel">
+  <ion-segment value="series" [(ngModel)]="segmentModel" scrollable="true" (ionChange)="segmentChange($event)">
     <ion-segment-button value="series">
       <strong>Series</strong>
     </ion-segment-button>
@@ -52,7 +52,7 @@
 
         </ion-grid>
 
-        <ion-grid *ngFor='let item of series ;index as i; first as isFirst' color="dark">
+        <ion-grid *ngFor='let item of listHome ;index as i; first as isFirst' color="dark">
 
           <ion-row>
             <ion-col size="12" size-md>
@@ -61,7 +61,7 @@
             </ion-col>
           </ion-row>
 
-          <ion-row *ngIf="!item.thirdParty">
+          <ion-row>
             <ion-col size="12" size-md>
               <ion-slides [options]="slideOpts" class="swiper-container">
                 <ion-slide *ngFor='let row2 of item.home' class="swiper-wrapper">
@@ -91,34 +91,41 @@
   </div>
 
   <div *ngIf="segmentModel === 'peliculas'">
-    <ion-grid *ngFor='let item of series;index as i ; first as isFirst'>
-      <ion-row *ngIf="item.thirdParty">
-        <ion-col size="12" size-md>
-          <ion-item [color]="isFirst ? 'tertiary' : 'none'" class="categoria">{{item.categoria}}</ion-item>
-        </ion-col>
-      </ion-row>
-      <ion-row *ngIf="item.thirdParty">
-        <ion-col size="12" size-md>
-          <ion-slides [options]="slideOpts" class="swiper-container">
-            <ion-slide *ngFor='let row2 of item.home' class="swiper-wrapper">
-              <ion-card mode="md" class="cardGallery" (click)="ListaFiguras(row2.titulo,row2.titulo)" size="12">
-                <ion-img [src]="row2.imagen"></ion-img>
-                <ion-card-content>
+    <ion-infinite-scroll>
+      <ion-infinite-scroll-content>
+        <ion-grid *ngFor='let item of listHome ;index as i; first as isFirst' color="dark">
+          <ion-row>
+            <ion-col size="12" size-md>
+              <ion-item color="dark" class="categoria">{{item.categoria}}</ion-item>
+              <ion-icon slot="end" color="warning" name="share-social-outline" (click)="onOpenMenu()"></ion-icon>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="!item.thirdParty">
+            <ion-col size="12" size-md>
+              <ion-slides [options]="slideOpts" class="swiper-container">
+                <ion-slide *ngFor='let row2 of item.home' class="swiper-wrapper">
+                 <!-- <ion-card mode="md" class="cardGallery"
+                    (click)="row2.irAListaVideo ? irAListaVideo(row2.titulo) : verSerie(row2.titulo,row2.video)" size="12">-->
+                    <ion-card mode="md" class="cardGallery"
+                    (click)="abrirModal(row2)" size="12">
+                    <ion-img [src]="row2.imagen"></ion-img>
+                    <ion-card-content>
+                      <div class="totalCollection"
+                        (click)="abrirModal(row2)">
+                        {{row2.totalCapitulos}} Capitulos</div>
+                    </ion-card-content>
+                  </ion-card>
+                </ion-slide>
+              </ion-slides>
+            </ion-col>
+          </ion-row>
 
-                  <div class="totalCollection" (click)="ListaFiguras(row2.IdMenutitulo,row2.titulo)">
-                    {{row2.totalCollection}} figures</div>
-
-
-                </ion-card-content>
-              </ion-card>
-            </ion-slide>
-          </ion-slides>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+        </ion-grid>
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
   </div>
 
-  <ion-list color="dark" *ngIf="(series.length) === 0">
+  <ion-list color="dark" *ngIf="(listHome.length) === 0">
     <ion-item-sliding color="dark" *ngFor="let info of [1,1,1,1,1]">
       <ion-item lines="none">
         <ion-skeleton-text color="light" animated style="width: 96%;height: 200px;"></ion-skeleton-text>

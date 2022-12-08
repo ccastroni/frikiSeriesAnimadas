@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
+import { isPlatform } from '@ionic/angular';
+import { StatusBar, Style } from '@capacitor/status-bar';
 
 
 @Component({
@@ -24,6 +26,7 @@ export class VerseriesPage implements OnInit {
   }
 
   ngOnInit() {
+    
 
   }
 

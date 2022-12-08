@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "533881623046",
+    "firebase_url": "https://friki-series-peliculas-default-rtdb.firebaseio.com",
+    "project_id": "friki-series-peliculas",
+    "storage_bucket": "friki-series-peliculas.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533881623046:android:8e523750a22f18d3502987",
+        "android_client_info": {
+          "package_name": "io.frikiSeries"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "533881623046-bd7f45miq45b7s3kdi75ice90bqf0oc9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANw4KNDrjOE-Plchk416QpNRPc8fGo7is"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "533881623046-bd7f45miq45b7s3kdi75ice90bqf0oc9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

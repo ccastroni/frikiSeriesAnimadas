@@ -2,7 +2,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'io.frikiSeries',
-  appName: 'friki Series',
+  appName: 'Friki Series',
   webDir: 'www',
   bundledWebRuntime: false,
   plugins: {
